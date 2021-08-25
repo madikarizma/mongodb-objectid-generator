@@ -7,12 +7,12 @@
     <title>MongoDB ObjectID generator</title>
   </head>
   <body>
-    <button onclick="generateObjectIds(10)">Generate MongoDB ObjectId</button>
+    <button onclick="generateObjectIds">Generate MongoDB ObjectId</button>
     <div id="generated-object-ids" style="font-family: monospace; margin-top: 20px;"></div>
     <script>
     const generatedObjectIdsElement = document.querySelector('#generated-object-ids');
       
-    const generateObjectIds = function(howManyIds = 1) {
+    const generateObjectIds = function(howManyIds = 100) {
       const generatedIds = [];
       
       generatedObjectIdsElement.innerHTML = '';
@@ -31,6 +31,10 @@
       
       for (let index = 0; index < generatedIds.length; index++) {
         const node = document.createElement('div');
+        node.style.backgroundColor = "#F3F4F6";
+        node.style.fontSize = '18px';
+        node.style.marginTop = '2px';
+        node.style.padding = '5px'
         const textnode = document.createTextNode(generatedIds[index]);
         node.appendChild(textnode);
         generatedObjectIdsElement.appendChild(node);
