@@ -11,7 +11,7 @@
     <button onclick="generateObjectIds">Generate MongoDB ObjectId</button>
     <div id="generated-object-ids" style="font-family: monospace; margin-top: 20px;"></div>
     <script>
-    const howManyIdsInput = document.querySelector('type="number"');
+    const howManyIdsInput = document.querySelector('[type="number"]');
     const generatedObjectIdsElement = document.querySelector('#generated-object-ids');
       
     const generateObjectIds = function(howManyIds = 1) {
