@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MongoDB ObjectID generator</title>
+    <script>
+    const generatedObjectIdsElement = document.querySelector('#generated-object-ids');
+      
+    const generateObjectIds = function(howManyIds = 1) {
+      const generatedIds = [];
+      
+      generatedObjectIdsElement.innerHTML = '';
+      
+      while (howManyIds > 0) {
+        const timestamp = (new Date().getTime() / 1000 | 0).toString(16);
+        
+        const objectId = timestamp + 'xxxxxxxxxxxxxxxx'.replace(/[x]/g, function() {
+          return (Math.random() * 16 | 0).toString(16);
+        }).toLowerCase();
+        
+        generatedIds.push(objectId);
+        
+        howManyIds--;
+      }
+      
+      for (let index = 0; index < generatedIds.length; index++) {
+        const node = document.createElement('div');
+        const textnode = document.createTextNode(generatedIds[index]);
+        node.appendChild(textnode);
+        generatedObjectIdsElement.appendChild(node);
+      }
+    };
+    </script>
+  </head>
+  <body>
+    <button>Generate MongoDB ObjectId</button>
+    <div id="generated-object-ids" style="font-family: monospace; margin-top: 20px;"></div>
+  </body>
+</html>
