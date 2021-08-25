@@ -7,17 +7,21 @@
     <title>MongoDB ObjectID generator</title>
   </head>
   <body>
-    <input type="number" /><br>
-    <button onclick="generateObjectIds">Generate MongoDB ObjectId</button>
-    <div id="generated-object-ids" style="font-family: monospace; margin-top: 20px;"></div>
+    <input type="number" min="1" max="100" value="1" />
+    <button onclick="generateObjectIds()">Generate</button>
+    <div id="generated-object-ids" style="font-family: monospace; margin-top: 10px;"></div>
     <script>
     const howManyIdsInput = document.querySelector('[type="number"]');
     const generatedObjectIdsElement = document.querySelector('#generated-object-ids');
       
     const generateObjectIds = function() {
       const generatedIds = [];
-      
-      const howManyIds = howManyIdsInput.value || 1;
+
+      let howManyIds = howManyIdsInput.value || 1;
+
+      if (howManyIds > 100) {
+        return alert('Maximum number of IDs generated at a time: 100');
+      }
       
       generatedObjectIdsElement.innerHTML = '';
       
