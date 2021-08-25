@@ -14,12 +14,10 @@
     const howManyIdsInput = document.querySelector('[type="number"]');
     const generatedObjectIdsElement = document.querySelector('#generated-object-ids');
       
-    const generateObjectIds = function(howManyIds = 1) {
+    const generateObjectIds = function() {
       const generatedIds = [];
       
-      howManyIds = howManyIdsInput.value || 1;
-      
-      console.log(howManyIds);
+      const howManyIds = howManyIdsInput.value || 1;
       
       generatedObjectIdsElement.innerHTML = '';
       
